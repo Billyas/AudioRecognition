@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AudioRecognition.DAL;
+using AudioRecognition.Model;
 
 namespace AudioRecognition
 {
@@ -39,6 +41,22 @@ namespace AudioRecognition
         private void button2_Click(object sender, EventArgs e)
         {
             recorder.StopRec();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DbUser dbUser = new DbUser();
+            User user = new User("bvv","b");
+            if (dbUser.VerifyUser(user))
+            {
+                textBox1.Text = "注册成功！";
+            }
+            else
+            {
+                textBox1.Text = "注册失败";
+
+            }
+
         }
     }
 }

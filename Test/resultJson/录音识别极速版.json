@@ -1,0 +1,26 @@
+{
+  "request_id": "61b0a88786698904cdd328b0",
+  "code": 0,
+  "message": "",
+  "audio_duration": 12320,
+  "flash_result": [
+    {
+      "text": "你好你好，天王盖地虎，宝塔镇河妖测试成功。长风破浪会有时，直挂云帆济沧海。",
+      "channel_id": 0,
+      "sentence_list": [
+        {
+          "text": "你好你好，天王盖地虎，宝塔镇河妖测试成功。",
+          "start_time": 300,
+          "end_time": 6400,
+          "speaker_id": 0
+        },
+        {
+          "text": "长风破浪会有时，直挂云帆济沧海。",
+          "start_time": 6920,
+          "end_time": 11520,
+          "speaker_id": 0
+        }
+      ]
+    }
+  ]
+}

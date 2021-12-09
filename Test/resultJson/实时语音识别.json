@@ -1,0 +1,15 @@
+{
+  "code": 0,
+  "message": "success",
+  "voice_id": "3LF12j6Ua70WR0hX0t",
+  "message_id": "3LF12j6Ua70WR0hX0t_261_0",
+  "result": {
+    "slice_type": 2,
+    "index": 0,
+    "start_time": 0,
+    "end_time": 8700,
+    "voice_text_str": "长风破浪会有时，直挂云帆济沧海。",
+    "word_size": 0,
+    "word_list": []
+  }
+}

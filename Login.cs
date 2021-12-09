@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AudioRecognition.BBL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,8 +26,17 @@ namespace AudioRecognition
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            //string user = usernameInput.Text;
-            //string pwd = passwordInput.Text;
+            string user = usernameInput.Text;
+            string pwd = passwordInput.Text;
+            UserService userService = new UserService();
+            if (userService.VerifyUser(user, pwd))
+            {
+                Form1 mainform = new Form1();
+                this.Hide();
+                mainform.ShowDialog();
+                Application.ExitThread();
+            }
+
             //DbUser dbUser = new DbUser();
             //if (dbUser.Veryfiyuser(user, pwd))
             //{
