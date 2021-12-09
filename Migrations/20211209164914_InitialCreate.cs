@@ -27,8 +27,8 @@ namespace AudioRecognition.Migrations
                     Audio_duration = table.Column<string>(nullable: true),
                     Message = table.Column<string>(nullable: true),
                     Flash_result = table.Column<string>(nullable: true),
-                    Username = table.Column<string>(nullable: false),
-                    LastUpdated = table.Column<DateTime>(nullable: false)
+                    Time = table.Column<DateTime>(nullable: false),
+                    Username = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -38,7 +38,7 @@ namespace AudioRecognition.Migrations
                         column: x => x.Username,
                         principalTable: "Users",
                         principalColumn: "Username",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,7 +49,8 @@ namespace AudioRecognition.Migrations
                     Message = table.Column<string>(nullable: true),
                     MessageId = table.Column<string>(nullable: true),
                     Result = table.Column<string>(nullable: true),
-                    Username = table.Column<string>(nullable: false)
+                    Time = table.Column<DateTime>(nullable: false),
+                    Username = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -59,7 +60,7 @@ namespace AudioRecognition.Migrations
                         column: x => x.Username,
                         principalTable: "Users",
                         principalColumn: "Username",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -69,8 +70,8 @@ namespace AudioRecognition.Migrations
                     RequestId = table.Column<string>(nullable: false),
                     AudioDuration = table.Column<string>(nullable: true),
                     Result = table.Column<string>(nullable: true),
-                    LastUpdated = table.Column<DateTime>(nullable: false),
-                    Username = table.Column<string>(nullable: false)
+                    Time = table.Column<DateTime>(nullable: false),
+                    Username = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -80,7 +81,7 @@ namespace AudioRecognition.Migrations
                         column: x => x.Username,
                         principalTable: "Users",
                         principalColumn: "Username",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

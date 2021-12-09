@@ -36,6 +36,13 @@ namespace AudioRecognition
                 mainform.ShowDialog();
                 Application.ExitThread();
             }
+            else
+            {
+                MessageBox.Show("登录失败", "用户名或密码错误！");
+                usernameInput.Text = "";
+                passwordInput.Text = "";
+                usernameInput.Focus();
+            }
 
             //DbUser dbUser = new DbUser();
             //if (dbUser.Veryfiyuser(user, pwd))
@@ -49,9 +56,7 @@ namespace AudioRecognition
             //else
             //{
             //    MessageBox.Show("用户名或密码错误", "登陆失败");
-            //    usernameInput.Text = "";
-            //    passwordInput.Text = "";
-            //    usernameInput.Focus();
+
             //}
 
         }
@@ -60,11 +65,17 @@ namespace AudioRecognition
 
         private void buttonRegist_Click(object sender, EventArgs e)
         {
-            //string user = usernameInput.Text;
-            //string pwd = passwordInput.Text;
-            //DbUser dbUser = new DbUser();
-            //dbUser.adduser(user, pwd);
-            //MessageBox.Show("注册成功", "请登录");
+            string user = usernameInput.Text;
+            string pwd = passwordInput.Text;
+            UserService userService = new UserService();
+            if(userService.AddUser(user, pwd))
+            {
+                MessageBox.Show("注册成功", "请登录");
+            }
+            else
+            {
+                MessageBox.Show("注册失败", "用户名已存在！");
+            }
 
         }
     }

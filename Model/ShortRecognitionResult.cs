@@ -11,11 +11,16 @@ namespace AudioRecognition.Model
     [Table("ShortRecognitionResults")]
     public class ShortRecognitionResult
     {
-        public ShortRecognitionResult(string requestId, string audioDuration, string result)
+        public ShortRecognitionResult()
+        {
+
+        }
+        public ShortRecognitionResult(string requestId, string audioDuration, string result, DateTime time)
         {
             RequestId = requestId;
             AudioDuration = audioDuration;
             Result = result;
+            Time = time;
         }
 
         [Key]
@@ -23,10 +28,8 @@ namespace AudioRecognition.Model
         public string AudioDuration { get; set; }
         public string Result { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime LastUpdated { get; set; }
-        [Required]
-        public User User { get; set; }
+        public DateTime Time { get; set; }
+
 
         public override string ToString()
         {

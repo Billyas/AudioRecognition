@@ -11,12 +11,17 @@ namespace AudioRecognition.Model
     [Table("LiveRecognitionResults")]
     public class LiveRecognitionResult
     {
-        public LiveRecognitionResult(string voice_id, string message, string messageId, string result)
+        public LiveRecognitionResult()
+        {
+
+        }
+        public LiveRecognitionResult(string voice_id, string message, string messageId, string result, DateTime time)
         {
             Voice_id = voice_id;
             Message = message;
             MessageId = messageId;
             Result = result;
+            Time = time;
         }
 
         [Key]
@@ -24,9 +29,10 @@ namespace AudioRecognition.Model
         public string Message { get; set; }
         public string MessageId { get; set; }
         public string Result { get; set; }
+
+        public DateTime Time { get; set; }
         
-        [Required]
-        public User User { get; set; }
+
 
     }
 }

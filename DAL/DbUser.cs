@@ -28,18 +28,27 @@ namespace AudioRecognition.DAL
         {
             using (var context = new ASRContext())
             {
-                var hasusers = context.Users
-                    .Count(u => u.Equals(user));
-                if (hasusers!=0)
+                try
                 {
+                    var hasusers = context.Users
+                    .Count(u => u.Equals(user));
+                    if (hasusers != 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        context.Users.Add(user);
+                        context.SaveChanges();
+                        return true;
+                    }
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
                     return false;
                 }
-                else
-                {
-                    context.Users.Add(user);
-                    context.SaveChanges();
-                    return true;
-                }
+                
             }
         }
 

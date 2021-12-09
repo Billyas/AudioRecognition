@@ -11,12 +11,17 @@ namespace AudioRecognition.Model
     [Table("FlashRecognitionResults")]
     public class FlashRecognitionResult
     {
-        public FlashRecognitionResult(string request_id, string audio_duration, string message, string flash_result)
+        public FlashRecognitionResult()
+        {
+
+        }
+        public FlashRecognitionResult(string request_id, string audio_duration, string message, string flash_result, DateTime time = default)
         {
             Request_id = request_id;
             Audio_duration = audio_duration;
             Message = message;
             Flash_result = flash_result;
+            Time = time;
         }
 
         [Key]
@@ -24,12 +29,10 @@ namespace AudioRecognition.Model
         public string Audio_duration { get; set; }
         public string Message { get; set; }
         public string Flash_result { get; set; }
-        //[ForeignKey("FK_user_FRR")]
-        [Required]
-        public  User User { get; set; }
+        
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime LastUpdated { get; set; }
+
+        public DateTime Time { get; set; }
 
 
 

@@ -22,6 +22,10 @@ namespace AudioRecognition.Model
         [Required]
         public string Password { get; set; }
 
+        public List<FlashRecognitionResult> FlashRecognitionResults { get; set; }
+        public List<LiveRecognitionResult> LiveRecognitionResults { get; set; }
+        public List<ShortRecognitionResult> ShortRecognitionResults { get; set; }
+
         public override bool Equals(object obj)
         {
             return obj is User user &&

@@ -27,15 +27,13 @@ namespace AudioRecognition.Migrations
                     b.Property<string>("Flash_result")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("LastUpdated")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Message")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Request_id");
@@ -59,8 +57,10 @@ namespace AudioRecognition.Migrations
                     b.Property<string>("Result")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Voice_id");
@@ -78,15 +78,13 @@ namespace AudioRecognition.Migrations
                     b.Property<string>("AudioDuration")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("LastUpdated")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Result")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("RequestId");
@@ -112,29 +110,23 @@ namespace AudioRecognition.Migrations
 
             modelBuilder.Entity("AudioRecognition.Model.FlashRecognitionResult", b =>
                 {
-                    b.HasOne("AudioRecognition.Model.User", "User")
-                        .WithMany()
-                        .HasForeignKey("Username")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("AudioRecognition.Model.User", null)
+                        .WithMany("FlashRecognitionResults")
+                        .HasForeignKey("Username");
                 });
 
             modelBuilder.Entity("AudioRecognition.Model.LiveRecognitionResult", b =>
                 {
-                    b.HasOne("AudioRecognition.Model.User", "User")
-                        .WithMany()
-                        .HasForeignKey("Username")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("AudioRecognition.Model.User", null)
+                        .WithMany("LiveRecognitionResults")
+                        .HasForeignKey("Username");
                 });
 
             modelBuilder.Entity("AudioRecognition.Model.ShortRecognitionResult", b =>
                 {
-                    b.HasOne("AudioRecognition.Model.User", "User")
-                        .WithMany()
-                        .HasForeignKey("Username")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("AudioRecognition.Model.User", null)
+                        .WithMany("ShortRecognitionResults")
+                        .HasForeignKey("Username");
                 });
 #pragma warning restore 612, 618
         }

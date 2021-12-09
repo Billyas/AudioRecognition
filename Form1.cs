@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AudioRecognition.DAL;
 using AudioRecognition.Model;
+using AudioRecognition.UI;
 
 namespace AudioRecognition
 {
@@ -26,37 +27,25 @@ namespace AudioRecognition
 
         }
 
-        NAudioRecorder recorder = new NAudioRecorder();
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_2(object sender, EventArgs e)
         {
-            recorder.setform(f);
+            CreateDB createDB = new CreateDB();
 
-            //开始录音
-            recorder.SetFileName("record.wav");
-            recorder.StartRec();
+        }
 
+        private void 退出登录ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            recorder.StopRec();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            DbUser dbUser = new DbUser();
-            User user = new User("bvv","b");
-            if (dbUser.VerifyUser(user))
-            {
-                textBox1.Text = "注册成功！";
-            }
-            else
-            {
-                textBox1.Text = "注册失败";
-
-            }
-
+            User user = new User("2", "2");
+            DbSRR dbSRR = new DbSRR();
+            ShortRecognitionResult shortRecognition = 
+                new ShortRecognitionResult("aa","a","a", DateTime.Now);
+            dbSRR.AddSRR(shortRecognition, user);
         }
     }
 }
