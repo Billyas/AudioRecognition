@@ -29,12 +29,10 @@ namespace AudioRecognition.Model
         public string Audio_duration { get; set; }
         public string Message { get; set; }
         public string Flash_result { get; set; }
-        
-
 
         public DateTime Time { get; set; }
 
-
+        public User User { get; set; }
 
         public override string ToString()
         {

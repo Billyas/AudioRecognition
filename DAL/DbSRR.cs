@@ -9,25 +9,58 @@ namespace AudioRecognition.DAL
 {
     class DbSRR
     {
+        public string[] DataToSQL(ShortRecognitionResult srr, User user)
+        {
+            string[] res = new string[5];
+            res[0] = srr.RequestId;
+            res[1] = srr.AudioDuration;
+            res[2] = srr.Result;
+            res[3] = srr.Time.ToString("s");
+            res[4] = user.Username;
+            return res;
+        }
+
         public List<ShortRecognitionResult> GetSRRByUser(User user)
         {
-            using (var context = new ASRContext())
+            SqLiteHelper sqLiteHelper = new SqLiteHelper();
+            var res = sqLiteHelper.ExecuteQuery("select * from ShortRecognitionResults where username = '" + user.Username+"'");
+            List<ShortRecognitionResult> shortRecognitionResults = new List<ShortRecognitionResult>();
+            if (res.HasRows)
             {
-                var shortrecognitionresults = context.Users
-                    .Single(e=>e.Equals(user))
-                    .ShortRecognitionResults;
-                //var res = (from c in context.shortRecognitionResults where c.User.Equals(user) select c).ToList();
-                //foreach(var i in res)
-                //{
-                //    Console.WriteLine(i.ToString());
-                //}
-                return shortrecognitionresults;
+                while (res.Read())
+                {
+                    ShortRecognitionResult tmp =
+                        new ShortRecognitionResult(res.GetString(0), res.GetString(1), res.GetString(2), res.GetDateTime(3));
+
+
+                    shortRecognitionResults.Add(tmp);
+                }
+                sqLiteHelper.CloseConnection();
+                return shortRecognitionResults;
+            }
+            else
+            {
+                sqLiteHelper.CloseConnection();
+                return null;
             }
         }
 
         public bool AddSRR(ShortRecognitionResult srr, User user)
         {
-            using (var context = new ASRContext())
+            SqLiteHelper sq = new SqLiteHelper();
+            var res = sq.ExecuteQuery("select * from ShortRecognitionResults where RequestId = '" + srr.RequestId + "'");
+            if (res.HasRows)
+            {
+                return false;
+            }
+            else
+            {
+                bool flag = false;
+                flag = sq.InsertItems("ShortRecognitionResults", DataToSQL(srr, user));
+                sq.CloseConnection();
+                return flag;
+            }
+            /*using (var context = new ASRContext())
             {
                 List<ShortRecognitionResult> shortRecognitionResults = new List<ShortRecognitionResult>();
                 shortRecognitionResults.Add(srr);
@@ -36,8 +69,8 @@ namespace AudioRecognition.DAL
                     var has = context.Users.Count(e => e.Equals(user));
                     if (has != 0)
                     {
-                        var getuser=context.Users.SingleOrDefault(e => e.Equals(user));
-                        if(getuser.ShortRecognitionResults == null)
+                        var getuser = context.Users.SingleOrDefault(e => e.Equals(user));
+                        if (getuser.ShortRecognitionResults == null)
                         {
                             List<ShortRecognitionResult> shorts = new List<ShortRecognitionResult>();
                             shorts.Add(srr);
@@ -58,13 +91,14 @@ namespace AudioRecognition.DAL
                     }
                     return false;
 
-                }catch(Exception e)
+                }
+                catch (Exception e)
                 {
                     Console.WriteLine(e);
                     return false;
                 }
 
-            }
+            }*/
         }
     }
 }

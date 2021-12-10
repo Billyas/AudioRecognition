@@ -33,12 +33,14 @@ namespace AudioRecognition
             this.账户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出登录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出登录ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.登录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置参数ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +60,8 @@ namespace AudioRecognition
             // 
             this.账户ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.退出登录ToolStripMenuItem,
-            this.退出登录ToolStripMenuItem1});
+            this.退出登录ToolStripMenuItem1,
+            this.登录ToolStripMenuItem});
             this.账户ToolStripMenuItem.Name = "账户ToolStripMenuItem";
             this.账户ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.账户ToolStripMenuItem.Text = "账户";
@@ -75,6 +78,13 @@ namespace AudioRecognition
             this.退出登录ToolStripMenuItem1.Name = "退出登录ToolStripMenuItem1";
             this.退出登录ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
             this.退出登录ToolStripMenuItem1.Text = "退出登录";
+            // 
+            // 登录ToolStripMenuItem
+            // 
+            this.登录ToolStripMenuItem.Name = "登录ToolStripMenuItem";
+            this.登录ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.登录ToolStripMenuItem.Text = "登录";
+            this.登录ToolStripMenuItem.Click += new System.EventHandler(this.登录ToolStripMenuItem_Click);
             // 
             // 配置ToolStripMenuItem
             // 
@@ -124,12 +134,23 @@ namespace AudioRecognition
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(320, 104);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(827, 482);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
@@ -156,6 +177,8 @@ namespace AudioRecognition
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem 退出登录ToolStripMenuItem1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem 登录ToolStripMenuItem;
+        private System.Windows.Forms.Button button3;
     }
 }
 

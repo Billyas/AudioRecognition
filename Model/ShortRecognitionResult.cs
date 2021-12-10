@@ -30,6 +30,9 @@ namespace AudioRecognition.Model
 
         public DateTime Time { get; set; }
 
+        //public string Username { get; set; }
+        public User User { get; set; }
+
 
         public override string ToString()
         {

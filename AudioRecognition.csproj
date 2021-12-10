@@ -273,9 +273,9 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20211209164914_InitialCreate.cs" />
-    <Compile Include="Migrations\20211209164914_InitialCreate.designer.cs">
-      <DependentUpon>20211209164914_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\20211210071243_InitialCreate2.cs" />
+    <Compile Include="Migrations\20211210071243_InitialCreate2.designer.cs">
+      <DependentUpon>20211210071243_InitialCreate2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ASRContextModelSnapshot.cs" />
     <Compile Include="Model\FlashRecognitionResult.cs" />
@@ -335,6 +335,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="DAL\database.sql" />
     <Content Include="Test\test_wav\16k.wav" />
     <Content Include="Test\test_wav\16k_30s..wav" />
     <Content Include="Test\test_wav\a.mp3" />

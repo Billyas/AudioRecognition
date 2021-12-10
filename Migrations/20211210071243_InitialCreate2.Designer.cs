@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AudioRecognition.Migrations
 {
     [DbContext(typeof(ASRContext))]
-    [Migration("20211209164914_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20211210071243_InitialCreate2")]
+    partial class InitialCreate2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -126,7 +126,7 @@ namespace AudioRecognition.Migrations
 
             modelBuilder.Entity("AudioRecognition.Model.ShortRecognitionResult", b =>
                 {
-                    b.HasOne("AudioRecognition.Model.User", null)
+                    b.HasOne("AudioRecognition.Model.User", "User")
                         .WithMany("ShortRecognitionResults")
                         .HasForeignKey("Username");
                 });

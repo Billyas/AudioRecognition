@@ -44,7 +44,23 @@ namespace AudioRecognition
             User user = new User("2", "2");
             DbSRR dbSRR = new DbSRR();
             ShortRecognitionResult shortRecognition = 
-                new ShortRecognitionResult("aa","a","a", DateTime.Now);
+                new ShortRecognitionResult("aaaa","a","a", DateTime.Now);
+            //dbSRR.AddSRR(shortRecognition, user);
+            dbSRR.GetSRRByUser(user);
+        }
+
+        private void 登录ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            User user = new User("2", "2");
+            DbSRR dbSRR = new DbSRR();
+            ShortRecognitionResult shortRecognition =
+                new ShortRecognitionResult("aaaa", "a", "a", DateTime.Now);
             dbSRR.AddSRR(shortRecognition, user);
         }
     }

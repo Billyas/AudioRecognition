@@ -124,7 +124,7 @@ namespace AudioRecognition.Migrations
 
             modelBuilder.Entity("AudioRecognition.Model.ShortRecognitionResult", b =>
                 {
-                    b.HasOne("AudioRecognition.Model.User", null)
+                    b.HasOne("AudioRecognition.Model.User", "User")
                         .WithMany("ShortRecognitionResults")
                         .HasForeignKey("Username");
                 });
