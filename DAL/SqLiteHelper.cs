@@ -44,6 +44,12 @@ namespace AudioRecognition.DAL
                 Log(e.ToString());
             }
         }
+
+        //~SqLiteHelper()
+        //{
+        //    CloseConnection();
+        //}
+
         /// <summary>
         /// 执行SQL命令
         /// </summary>

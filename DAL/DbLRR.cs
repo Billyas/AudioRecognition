@@ -59,5 +59,13 @@ namespace AudioRecognition.DAL
                 return flag;
             }
         }
+
+        public bool DeleteLRR(string id)
+        {
+            SqLiteHelper sq = new SqLiteHelper();
+            bool res = sq.DeleteValues("LiveRecognitionResults", "Voice_id", id);
+            sq.CloseConnection();
+            return res;
+        }
     }
 }

@@ -85,5 +85,33 @@ namespace AudioRecognition
             dbLRR.GetLRRByUser(user);
             //Console.WriteLine(dbLRR.AddLRR(lrr));
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DbLRR dbLRR = new DbLRR();
+            dbLRR.DeleteLRR("32d");
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            User user = new User("2", "2");
+            DbFRR dbFRR = new DbFRR();
+            FlashRecognitionResult frr = new FlashRecognitionResult("adsf","dsf","dfs","dsfa",DateTime.Now,user.Username);
+            dbFRR.AddFRR(frr);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            User user = new User("2", "2");
+            DbFRR dbFRR = new DbFRR();
+            dbFRR.GetFRRByUser(user);
+            
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            DbFRR dbFRR = new DbFRR();
+            dbFRR.DeleteFRR("adsf");
+        }
     }
 }
