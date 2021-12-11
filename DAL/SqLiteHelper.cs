@@ -77,9 +77,17 @@ namespace AudioRecognition.DAL
             {
                 dbCommand = dbConnection.CreateCommand();
                 dbCommand.CommandText = sql;
-                dataReader = dbCommand.ExecuteReader();
-                return true;
-            }catch (Exception e)
+                int res = dbCommand.ExecuteNonQuery();
+                if (res!=0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
             {
                 Log(e.Message);
                 return false;
@@ -183,6 +191,46 @@ namespace AudioRecognition.DAL
             }
         }
 
+        public bool InsertItems2(string tableName,string[]colName, string[] values)
+        {
+            //获取数据表中字段数目
+            //int fieldCount = ReadFullTable(tableName).FieldCount;
+            ////当插入的数据长度不等于字段数目时引发异常
+            //if (values.Length != fieldCount)
+            //{
+            //    throw new SQLiteException("values.Length!=fieldCount");
+            //}
+            string col = "('"+colName[0]+"'";
+            for(int i=1; i<colName.Length; i++)
+            {
+                col += ", " + "'" + colName[i] + "'";
+            }
+            col += " )";
+            string queryString = "INSERT INTO " + tableName +" "+col+ " VALUES (" + "'" + values[0] + "'";
+            for (int i = 1; i < values.Length; i++)
+            {
+                queryString += ", " + "'" + values[i] + "'";
+            }
+            queryString += " )";
+
+            try
+            {
+                dbCommand = dbConnection.CreateCommand();
+                dbCommand.CommandText = queryString;
+                int res = dbCommand.ExecuteNonQuery();
+                if (res > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                Log(e.Message);
+                return false;
+            }
+        }
+
         /// <summary>
         /// 更新指定数据表内的数据
         /// </summary>
@@ -208,6 +256,23 @@ namespace AudioRecognition.DAL
             }
             queryString += " WHERE " + key + operation + "'" + value + "'";
             return ExecuteQuery(queryString);
+        }
+
+        public bool UpdateValues2(string tableName, string[] colNames, string[] colValues, string key, string value, string operation = "=")
+        {
+            //当字段名称和字段数值不对应时引发异常
+            if (colNames.Length != colValues.Length)
+            {
+                throw new SQLiteException("colNames.Length!=colValues.Length");
+            }
+
+            string queryString = "UPDATE " + tableName + " SET " + colNames[0] + "=" + "'" + colValues[0] + "'";
+            for (int i = 1; i < colValues.Length; i++)
+            {
+                queryString += ", " + colNames[i] + "=" + "'" + colValues[i] + "'";
+            }
+            queryString += " WHERE " + key + operation + "'" + value + "'";
+            return ExecuteUpdateOrInsertSQL(queryString);
         }
 
         /// <summary>

@@ -9,7 +9,7 @@ Target Server Type    : SQLite
 Target Server Version : 30808
 File Encoding         : 65001
 
-Date: 2021-12-11 01:39:37
+Date: 2021-12-11 19:56:18
 */
 
 PRAGMA foreign_keys = OFF;
@@ -45,6 +45,19 @@ CONSTRAINT "FK_LiveRecognitionResults_Users_Username" FOREIGN KEY ("Username") R
 );
 
 -- ----------------------------
+-- Table structure for Secrets
+-- ----------------------------
+DROP TABLE IF EXISTS "main"."Secrets";
+CREATE TABLE "Secrets" (
+"ID"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+"APPID"  TEXT,
+"SECRET_ID"  TEXT,
+"SECRET_KEY"  TEXT,
+"UserName"  TEXT,
+CONSTRAINT "FK_User" FOREIGN KEY ("UserName") REFERENCES "Users" ("Username") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- ----------------------------
 -- Table structure for ShortRecognitionResults
 -- ----------------------------
 DROP TABLE IF EXISTS "main"."ShortRecognitionResults";
@@ -59,12 +72,30 @@ CONSTRAINT "FK_ShortRecognitionResults_Users_Username" FOREIGN KEY ("Username") 
 );
 
 -- ----------------------------
+-- Table structure for sqlite_sequence
+-- ----------------------------
+DROP TABLE IF EXISTS "main"."sqlite_sequence";
+CREATE TABLE sqlite_sequence(name,seq);
+
+-- ----------------------------
 -- Table structure for Users
 -- ----------------------------
 DROP TABLE IF EXISTS "main"."Users";
 CREATE TABLE "Users" (
     "Username" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
     "Password" TEXT NOT NULL
+);
+
+-- ----------------------------
+-- Table structure for _Secrets_old_20211211
+-- ----------------------------
+DROP TABLE IF EXISTS "main"."_Secrets_old_20211211";
+CREATE TABLE "_Secrets_old_20211211" (
+"ID"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+"APPID"  TEXT,
+"SECRET_ID"  TEXT,
+"SECRET_KEY"  TEXT,
+"UserName"  TEXT
 );
 
 -- ----------------------------

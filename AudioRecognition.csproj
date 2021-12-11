@@ -260,6 +260,7 @@
     <Compile Include="DAL\CreateDB.cs" />
     <Compile Include="DAL\DbFRR.cs" />
     <Compile Include="DAL\DbLRR.cs" />
+    <Compile Include="DAL\DbSecret.cs" />
     <Compile Include="DAL\DbSRR.cs" />
     <Compile Include="DAL\SqLiteHelper.cs" />
     <Compile Include="DAL\DbUser.cs" />
@@ -282,6 +283,7 @@
     <Compile Include="Migrations\ASRContextModelSnapshot.cs" />
     <Compile Include="Model\FlashRecognitionResult.cs" />
     <Compile Include="Model\LiveRecognitionResult.cs" />
+    <Compile Include="Model\Secret.cs" />
     <Compile Include="Model\ShortRecognitionResult.cs" />
     <Compile Include="DAL\ASRContext.cs" />
     <Compile Include="Model\User.cs" />

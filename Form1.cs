@@ -113,5 +113,27 @@ namespace AudioRecognition
             DbFRR dbFRR = new DbFRR();
             dbFRR.DeleteFRR("adsf");
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            User user = new User("2", "2");
+
+            DbSecret dbSecret = new DbSecret();
+            dbSecret.GetSecByUser(user);
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            DbSecret dbSecret = new DbSecret();
+            Secret secret = new Secret("fds","fdsg","fid","2");
+            dbSecret.AddSec(secret);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            DbSecret dbSecret = new DbSecret();
+            Secret secret = new Secret("fds", "fdsgsd", "fid", "2");
+            dbSecret.UpdateSec(secret);
+        }
     }
 }
