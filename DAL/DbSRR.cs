@@ -9,14 +9,14 @@ namespace AudioRecognition.DAL
 {
     class DbSRR
     {
-        public string[] DataToSQL(ShortRecognitionResult srr, User user)
+        public string[] DataToSQL(ShortRecognitionResult srr)
         {
             string[] res = new string[5];
             res[0] = srr.RequestId;
             res[1] = srr.AudioDuration;
             res[2] = srr.Result;
             res[3] = srr.Time.ToString("s");
-            res[4] = user.Username;
+            res[4] = srr.UserName;
             return res;
         }
 
@@ -45,18 +45,19 @@ namespace AudioRecognition.DAL
             }
         }
 
-        public bool AddSRR(ShortRecognitionResult srr, User user)
+        public bool AddSRR(ShortRecognitionResult srr)
         {
             SqLiteHelper sq = new SqLiteHelper();
             var res = sq.ExecuteQuery("select * from ShortRecognitionResults where RequestId = '" + srr.RequestId + "'");
             if (res.HasRows)
             {
+                sq.CloseConnection();
                 return false;
             }
             else
             {
                 bool flag = false;
-                flag = sq.InsertItems("ShortRecognitionResults", DataToSQL(srr, user));
+                flag = sq.InsertItems("ShortRecognitionResults", DataToSQL(srr));
                 sq.CloseConnection();
                 return flag;
             }
@@ -99,6 +100,14 @@ namespace AudioRecognition.DAL
                 }
 
             }*/
+        }
+
+        public bool DeleteSRR(string RequestId)
+        {
+            SqLiteHelper sqLiteHelper = new SqLiteHelper();
+            bool f= sqLiteHelper.DeleteValues("ShortRecognitionResult", "RequestId", RequestId);
+            sqLiteHelper.CloseConnection();
+            return f;
         }
     }
 }

@@ -45,8 +45,11 @@ namespace AudioRecognition
             DbSRR dbSRR = new DbSRR();
             ShortRecognitionResult shortRecognition = 
                 new ShortRecognitionResult("aaaa","a","a", DateTime.Now);
+            shortRecognition.UserName = user.Username;
             //dbSRR.AddSRR(shortRecognition, user);
-            dbSRR.GetSRRByUser(user);
+            //dbSRR.GetSRRByUser(user);
+            
+            Console.WriteLine(dbSRR.DeleteSRR("aaa"));
         }
 
         private void 登录ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,8 +63,27 @@ namespace AudioRecognition
             User user = new User("2", "2");
             DbSRR dbSRR = new DbSRR();
             ShortRecognitionResult shortRecognition =
-                new ShortRecognitionResult("aaaa", "a", "a", DateTime.Now);
-            dbSRR.AddSRR(shortRecognition, user);
+                new ShortRecognitionResult("aaaaaaaa", "a", "a", DateTime.Now, user.Username);
+            dbSRR.AddSRR(shortRecognition);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            User user = new User("2", "2");
+            DbLRR dbLRR = new DbLRR();
+            LiveRecognitionResult lrr = new LiveRecognitionResult("32d","fi","fdsa","fid",DateTime.Now,user.Username);
+            Console.WriteLine(dbLRR.AddLRR(lrr));
+            
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DbLRR dbLRR = new DbLRR();
+            User user = new User("2", "2");
+
+            dbLRR.GetLRRByUser(user);
+            //Console.WriteLine(dbLRR.AddLRR(lrr));
         }
     }
 }

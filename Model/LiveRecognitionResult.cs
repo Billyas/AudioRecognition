@@ -24,6 +24,16 @@ namespace AudioRecognition.Model
             Time = time;
         }
 
+        public LiveRecognitionResult(string voice_id, string message, string messageId, string result, DateTime time, string userName)
+        {
+            Voice_id = voice_id;
+            Message = message;
+            MessageId = messageId;
+            Result = result;
+            Time = time;
+            UserName = userName;
+        }
+
         [Key]
         public string Voice_id { get; set; }
         public string Message { get; set; }
@@ -32,7 +42,7 @@ namespace AudioRecognition.Model
 
         public DateTime Time { get; set; }
         
-
+        public string UserName { get; set; }
 
     }
 }

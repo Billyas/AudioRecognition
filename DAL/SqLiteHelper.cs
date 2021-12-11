@@ -205,6 +205,34 @@ namespace AudioRecognition.DAL
         }
 
         /// <summary>
+        /// 根据主键删除表
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public bool DeleteValues(string tableName ,string keyName, string keyValue)
+        {
+            string sql = "Delete from " + tableName + " where " + keyName + " = '" + keyValue + "'";
+            try
+            {
+                dbCommand = dbConnection.CreateCommand();
+                dbCommand.CommandText = sql;
+                int res = dbCommand.ExecuteNonQuery();
+                if (res > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                Log(e.Message);
+                return false;
+            }
+        }
+
+
+        /// <summary>
         /// 删除指定数据表内的数据
         /// </summary>
         /// <returns>The values.</returns>

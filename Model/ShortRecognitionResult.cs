@@ -23,6 +23,15 @@ namespace AudioRecognition.Model
             Time = time;
         }
 
+        public ShortRecognitionResult(string requestId, string audioDuration, string result, DateTime time, string userName)
+        {
+            RequestId = requestId;
+            AudioDuration = audioDuration;
+            Result = result;
+            Time = time;
+            UserName = userName;
+        }
+
         [Key]
         public string RequestId { get; set; }
         public string AudioDuration { get; set; }
@@ -30,7 +39,8 @@ namespace AudioRecognition.Model
 
         public DateTime Time { get; set; }
 
-        //public string Username { get; set; }
+        public string UserName { get; set; }
+
         public User User { get; set; }
 
 

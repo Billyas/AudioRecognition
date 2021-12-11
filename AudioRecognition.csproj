@@ -258,6 +258,7 @@
   <ItemGroup>
     <Compile Include="BBL\UserService.cs" />
     <Compile Include="DAL\CreateDB.cs" />
+    <Compile Include="DAL\DbLRR.cs" />
     <Compile Include="DAL\DbSRR.cs" />
     <Compile Include="DAL\SqLiteHelper.cs" />
     <Compile Include="DAL\DbUser.cs" />
