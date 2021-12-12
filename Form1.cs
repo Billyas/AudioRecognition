@@ -16,10 +16,12 @@ namespace AudioRecognition
     public partial class Form1 : Form
     {
         public static Form1 f = null;
+        public static User user;
         public Form1()
         {
             InitializeComponent();
             f = this;
+            user = new User("2", "2");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -134,6 +136,32 @@ namespace AudioRecognition
             DbSecret dbSecret = new DbSecret();
             Secret secret = new Secret("fds", "fdsgsd", "fid", "2");
             dbSecret.UpdateSec(secret);
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_MouseHover(object sender, EventArgs e)
+        {
+            Image image = Image.FromFile(@".\Resource\d.png");
+            flowLayoutPanel1.BackgroundImage = image;
+            label_live.ForeColor = Color.FromArgb(39, 208, 216);
+        }
+
+        private void flowLayoutPanel1_MouseLeave(object sender, EventArgs e)
+        {
+            Image image = Image.FromFile(@".\Resource\c.png");
+            flowLayoutPanel1.BackgroundImage = image;
+            label_live.ForeColor = Color.Black;
+        }
+
+        private void label_live_Click(object sender, EventArgs e)
+        {
+            LiveForm liveForm = new LiveForm(user);
+            liveForm.ShowDialog();
+            //this.Hide();
         }
     }
 }

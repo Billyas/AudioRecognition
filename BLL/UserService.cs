@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using AudioRecognition.DAL;
 using AudioRecognition.Model;
 
-namespace AudioRecognition.BBL
+namespace AudioRecognition.BLL
 {
     class UserService
     {

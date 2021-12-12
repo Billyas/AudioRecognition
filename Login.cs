@@ -1,4 +1,4 @@
-﻿using AudioRecognition.BBL;
+﻿using AudioRecognition.BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AudioRecognition.Model;
 
 namespace AudioRecognition
 {

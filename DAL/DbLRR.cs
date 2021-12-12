@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +41,41 @@ namespace AudioRecognition.DAL
             {
                 sqLiteHelper.CloseConnection();
                 return null;
+            }
+        }
+
+        public DataSet GetLRRByUserName(string username)
+        {
+            string connStr = "Data Source = Data.db";
+            SQLiteConnection conn = null;
+            try
+            {
+                conn = new SQLiteConnection(connStr);
+                //打开数据库
+                conn.Open();
+                string sql = "select * from LiveRecognitionResults where Username='"+username+"'";
+                //创建SqlDataAdapter类的对象
+                SQLiteDataAdapter sda = new SQLiteDataAdapter(sql, conn);
+                //创建DataSet类的对象
+                DataSet ds = new DataSet();
+                //使用SqlDataAdapter对象sda将查新结果填充到DataSet对象ds中
+                sda.Fill(ds);
+                //设置表格控件的DataSource属性
+                //dataGridView1.DataSource = ds.Tables[0];
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("出现错误！" + ex.Message);
+                return null;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    //关闭数据库连接
+                    conn.Close();
+                }
             }
         }
 
