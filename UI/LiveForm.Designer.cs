@@ -76,10 +76,10 @@ namespace AudioRecognition.UI
             // 
             this.LiveDataView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.LiveDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.LiveDataView.Location = new System.Drawing.Point(17, 98);
+            this.LiveDataView.Location = new System.Drawing.Point(12, 138);
             this.LiveDataView.Name = "LiveDataView";
             this.LiveDataView.RowTemplate.Height = 23;
-            this.LiveDataView.Size = new System.Drawing.Size(355, 251);
+            this.LiveDataView.Size = new System.Drawing.Size(409, 251);
             this.LiveDataView.TabIndex = 3;
             this.LiveDataView.Visible = false;
             // 
@@ -108,7 +108,7 @@ namespace AudioRecognition.UI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(107, 43);
+            this.label2.Location = new System.Drawing.Point(136, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 22);
             this.label2.TabIndex = 4;

@@ -53,7 +53,7 @@ namespace AudioRecognition.DAL
                 conn = new SQLiteConnection(connStr);
                 //打开数据库
                 conn.Open();
-                string sql = "select * from LiveRecognitionResults where Username='"+username+"'";
+                string sql = "select Voice_id,Result,Time from LiveRecognitionResults where Username='" + username+"'";
                 //创建SqlDataAdapter类的对象
                 SQLiteDataAdapter sda = new SQLiteDataAdapter(sql, conn);
                 //创建DataSet类的对象

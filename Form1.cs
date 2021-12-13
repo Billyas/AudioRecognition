@@ -163,5 +163,11 @@ namespace AudioRecognition
             liveForm.ShowDialog();
             //this.Hide();
         }
+
+        private void flowLayoutPanel2_Click(object sender, EventArgs e)
+        {
+            FlashForm flashForm = new FlashForm(user.Username);
+            flashForm.ShowDialog();
+        }
     }
 }

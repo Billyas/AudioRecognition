@@ -45,6 +45,7 @@ namespace AudioRecognition
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label_live = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,10 +150,11 @@ namespace AudioRecognition
             this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel2.BackgroundImage")));
             this.flowLayoutPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(224, 118);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(224, 129);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(127, 172);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(89, 146);
             this.flowLayoutPanel2.TabIndex = 4;
+            this.flowLayoutPanel2.Click += new System.EventHandler(this.flowLayoutPanel2_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -189,12 +191,26 @@ namespace AudioRecognition
             this.label_live.MouseLeave += new System.EventHandler(this.flowLayoutPanel1_MouseLeave);
             this.label_live.MouseHover += new System.EventHandler(this.flowLayoutPanel1_MouseHover);
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label2.Location = new System.Drawing.Point(230, 307);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 21);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "录音识别";
+            this.label2.Click += new System.EventHandler(this.flowLayoutPanel2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label_live);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel3);
@@ -231,6 +247,7 @@ namespace AudioRecognition
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Label label_live;
+        private System.Windows.Forms.Label label2;
     }
 }
 
