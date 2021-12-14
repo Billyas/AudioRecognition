@@ -189,13 +189,14 @@ namespace AudioRecognition
             }
         }
 
-        public string FlashRRun(string filename)
+        public  string FlashRRun(string filename)
         {
-            if (filename != "")
+            if (filename != ""||filename!=null)
             {
                 string extension = Path.GetExtension(filename);
                 this.voice_format = extension.Split('.')[1];
-                return uploadREC(filename);
+                var res =  uploadREC(filename);
+                return res;
             }
             else
             {

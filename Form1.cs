@@ -106,7 +106,7 @@ namespace AudioRecognition
         {
             User user = new User("2", "2");
             DbFRR dbFRR = new DbFRR();
-            dbFRR.GetFRRByUser(user);
+            //dbFRR.GetFRRByUser(user);
             
         }
 

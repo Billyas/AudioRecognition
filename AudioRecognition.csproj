@@ -259,6 +259,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\FlashService.cs" />
+    <Compile Include="BLL\Json2SRT.cs" />
     <Compile Include="BLL\LiveMicRecode.cs" />
     <Compile Include="BLL\LiveRecodeSender.cs" />
     <Compile Include="BLL\LRRservice.cs" />
@@ -377,6 +378,7 @@
     <Content Include="Test\test_wav\a.mp3" />
     <Content Include="Test\test_wav\c.mp3" />
     <Content Include="Test\test_wav\qt.m4a" />
+    <Content Include="Test\test_wav\黄鹤楼.mp3" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

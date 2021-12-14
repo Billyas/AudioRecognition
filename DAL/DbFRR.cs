@@ -23,10 +23,10 @@ namespace AudioRecognition.DAL
             return res;
         }
 
-        public List<FlashRecognitionResult> GetFRRByUser(User user)
+        public List<FlashRecognitionResult> GetFRRByUser(string user)
         {
             SqLiteHelper sqLiteHelper = new SqLiteHelper();
-            var res = sqLiteHelper.ExecuteQuery("select * from FlashRecognitionResults where username = '" + user.Username + "'");
+            var res = sqLiteHelper.ExecuteQuery("select * from FlashRecognitionResults where username = '" + user + "'");
             List<FlashRecognitionResult> flashRecognitionResults = new List<FlashRecognitionResult>();
             if (res.HasRows)
             {
@@ -36,6 +36,27 @@ namespace AudioRecognition.DAL
                         new FlashRecognitionResult(res.GetString(0), res.GetString(1), res.GetString(2), res.GetString(3), res.GetDateTime(4), res.GetString(5));
                     flashRecognitionResults.Add(tmp);
                 }
+                sqLiteHelper.CloseConnection();
+                return flashRecognitionResults;
+            }
+            else
+            {
+                sqLiteHelper.CloseConnection();
+                return null;
+            }
+        }
+
+        public FlashRecognitionResult GetFrrByID(string id)
+        {
+            SqLiteHelper sqLiteHelper = new SqLiteHelper();
+            var res = sqLiteHelper.ExecuteQuery("select * from FlashRecognitionResults where Request_id = '" + id + "'");
+            FlashRecognitionResult flashRecognitionResults;
+            if (res.HasRows)
+            {
+                res.Read();
+                flashRecognitionResults =
+                        new FlashRecognitionResult(res.GetString(0), res.GetString(1), res.GetString(2), res.GetString(3), res.GetDateTime(4), res.GetString(5));
+                    //flashRecognitionResults.Add(tmp);
                 sqLiteHelper.CloseConnection();
                 return flashRecognitionResults;
             }

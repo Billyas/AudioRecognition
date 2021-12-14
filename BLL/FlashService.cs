@@ -20,7 +20,7 @@ namespace AudioRecognition.BLL
                 frr.Request_id = json["request_id"].ToString();
                 frr.Audio_duration = json["audio_duration"].ToString();
                 frr.Message = json["message"].ToString();
-                frr.Flash_result = json["flash_result"].ToString();
+                frr.Flash_result = json["flash_result"].First().ToString();
                 frr.Time = DateTime.Now;
                 frr.UserName = username;
                 DbFRR dbFRR = new DbFRR();
@@ -37,6 +37,38 @@ namespace AudioRecognition.BLL
             DbFRR dbFRR = new DbFRR();
             return dbFRR.GetFRRByUserName(username);
         }
+
+        public List<FlashRecognitionResult> getFRRbyuserlists(string username)
+        {
+            DbFRR dbFRR = new DbFRR();
+            return dbFRR.GetFRRByUser(username);
+        }
+
+        public FlashRecognitionResult getFRRbyID(string id)
+        {
+            DbFRR dbFRR = new DbFRR();
+            return dbFRR.GetFrrByID(id);
+        }
+
+        public string getSRT(string id)
+        {
+            if (id == "")
+            {
+                return null;
+            }
+            Json2SRT json2SRT = new Json2SRT();
+            FlashRecognitionResult frr = new FlashRecognitionResult();
+            frr = getFRRbyID(id);
+            if (frr != null)
+            {
+                return json2SRT.String2SRT(frr.Flash_result);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
 
     }
 }
