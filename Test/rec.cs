@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AudioRecognition
 {
-    public class Recorder
+    public class NARecorder
     {
         private int deviceNumber = 0;    // 选择的录音设备下标。多个设备时可设置为用户选择
         private WaveIn waveIn;    // waveIn操作类

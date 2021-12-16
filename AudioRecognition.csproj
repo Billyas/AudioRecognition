@@ -260,11 +260,14 @@
   <ItemGroup>
     <Compile Include="BLL\FlashService.cs" />
     <Compile Include="BLL\Json2SRT.cs" />
+    <Compile Include="BLL\MicRecode.cs" />
     <Compile Include="BLL\LiveMicRecode.cs" />
     <Compile Include="BLL\LiveRecodeSender.cs" />
     <Compile Include="BLL\LRRservice.cs" />
     <Compile Include="BLL\FlashUtil.cs" />
     <Compile Include="BLL\UserService.cs" />
+    <Compile Include="BLL\VideoAddSRT.cs" />
+    <Compile Include="BLL\Vider2Audio.cs" />
     <Compile Include="DAL\CreateDB.cs" />
     <Compile Include="DAL\DbFRR.cs" />
     <Compile Include="DAL\DbLRR.cs" />
@@ -315,11 +318,23 @@
     <Compile Include="UI\LiveForm.Designer.cs">
       <DependentUpon>LiveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\RecodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RecodeForm.Designer.cs">
+      <DependentUpon>RecodeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Register.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VideoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\VideoForm.Designer.cs">
+      <DependentUpon>VideoForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -342,8 +357,14 @@
     <EmbeddedResource Include="UI\LiveForm.resx">
       <DependentUpon>LiveForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\RecodeForm.resx">
+      <DependentUpon>RecodeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\VideoForm.resx">
+      <DependentUpon>VideoForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

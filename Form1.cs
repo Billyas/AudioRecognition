@@ -145,15 +145,15 @@ namespace AudioRecognition
 
         private void flowLayoutPanel1_MouseHover(object sender, EventArgs e)
         {
-            Image image = Image.FromFile(@".\Resource\d.png");
-            flowLayoutPanel1.BackgroundImage = image;
+            //Image image = Image.FromFile(@".\Resource\d.png");
+            //flowLayoutPanel1.BackgroundImage = image;
             label_live.ForeColor = Color.FromArgb(39, 208, 216);
         }
 
         private void flowLayoutPanel1_MouseLeave(object sender, EventArgs e)
         {
-            Image image = Image.FromFile(@".\Resource\c.png");
-            flowLayoutPanel1.BackgroundImage = image;
+            //Image image = Image.FromFile(@".\Resource\c.png");
+            //flowLayoutPanel1.BackgroundImage = image;
             label_live.ForeColor = Color.Black;
         }
 
@@ -168,6 +168,42 @@ namespace AudioRecognition
         {
             FlashForm flashForm = new FlashForm(user.Username);
             flashForm.ShowDialog();
+        }
+
+        private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel3_Click(object sender, EventArgs e)
+        {
+            VideoForm videoForm = new VideoForm(user.Username);
+            videoForm.ShowDialog();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            RecodeForm recodeForm = new RecodeForm();
+            recodeForm.ShowDialog();
+        }
+
+        private void 退出登录ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //Form1 mainform = new Form1();
+            Login login = new Login();
+            this.Hide();
+            login.ShowDialog();
+            Application.ExitThread();
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(@"本程序基于C#编写，
+采用腾讯云ASR语音识别技术
+实现实时语音识别、录音文件
+识别、视频加字幕、即时录音
+等功能。如有问题，请联系作
+者: admin@billyme.top", "关于");
         }
     }
 }

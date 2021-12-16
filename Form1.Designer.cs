@@ -35,8 +35,6 @@ namespace AudioRecognition
             this.退出登录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出登录ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.登录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置参数ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +44,8 @@ namespace AudioRecognition
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label_live = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,6 @@ namespace AudioRecognition
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.账户ToolStripMenuItem,
-            this.配置ToolStripMenuItem,
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -81,8 +80,9 @@ namespace AudioRecognition
             // 退出登录ToolStripMenuItem1
             // 
             this.退出登录ToolStripMenuItem1.Name = "退出登录ToolStripMenuItem1";
-            this.退出登录ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.退出登录ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.退出登录ToolStripMenuItem1.Text = "退出登录";
+            this.退出登录ToolStripMenuItem1.Click += new System.EventHandler(this.退出登录ToolStripMenuItem1_Click);
             // 
             // 登录ToolStripMenuItem
             // 
@@ -90,20 +90,6 @@ namespace AudioRecognition
             this.登录ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.登录ToolStripMenuItem.Text = "登录";
             this.登录ToolStripMenuItem.Click += new System.EventHandler(this.登录ToolStripMenuItem_Click);
-            // 
-            // 配置ToolStripMenuItem
-            // 
-            this.配置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.设置参数ToolStripMenuItem});
-            this.配置ToolStripMenuItem.Name = "配置ToolStripMenuItem";
-            this.配置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.配置ToolStripMenuItem.Text = "配置";
-            // 
-            // 设置参数ToolStripMenuItem
-            // 
-            this.设置参数ToolStripMenuItem.Name = "设置参数ToolStripMenuItem";
-            this.设置参数ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.设置参数ToolStripMenuItem.Text = "设置参数";
             // 
             // 帮助ToolStripMenuItem
             // 
@@ -116,8 +102,9 @@ namespace AudioRecognition
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.关于ToolStripMenuItem.Text = "关于";
+            this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -161,20 +148,24 @@ namespace AudioRecognition
             this.flowLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel3.BackgroundImage")));
             this.flowLayoutPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(440, 118);
+            this.flowLayoutPanel3.CausesValidation = false;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(441, 129);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(127, 172);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(105, 146);
             this.flowLayoutPanel3.TabIndex = 5;
+            this.flowLayoutPanel3.Click += new System.EventHandler(this.flowLayoutPanel3_Click);
+            this.flowLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel3_Paint);
             // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel4.BackgroundImage")));
             this.flowLayoutPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(648, 118);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(647, 129);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(127, 172);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(103, 146);
             this.flowLayoutPanel4.TabIndex = 6;
+            this.flowLayoutPanel4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label_live
             // 
@@ -204,16 +195,44 @@ namespace AudioRecognition
             this.label2.Text = "录音识别";
             this.label2.Click += new System.EventHandler(this.flowLayoutPanel2_Click);
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label3.Location = new System.Drawing.Point(451, 307);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 21);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "视频字幕";
+            this.label3.Click += new System.EventHandler(this.flowLayoutPanel3_Click);
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label4.Location = new System.Drawing.Point(660, 307);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 21);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "录制音频";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label_live);
             this.Controls.Add(this.flowLayoutPanel4);
-            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
@@ -223,7 +242,6 @@ namespace AudioRecognition
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "语音识别";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Click += new System.EventHandler(this.label_live_Click);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -235,8 +253,6 @@ namespace AudioRecognition
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 账户ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 退出登录ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 配置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 设置参数ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 退出登录ToolStripMenuItem1;
@@ -248,6 +264,8 @@ namespace AudioRecognition
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Label label_live;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
